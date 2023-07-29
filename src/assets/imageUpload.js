@@ -3,10 +3,9 @@
 import defaults from "defaults";
 import naja from "naja";
 // Internal
-//import clipboard from "../../../../../app/js/internal/clipboard";
-//import confirmModal from "../../../../../app/js/internal/confirmModal";
-import clipboard from "../../../../js/clipboard";
-import confirmModal from "../../../../js/confirmModal";
+import clipboard from "../../../../../app/js/internal/clipboard";
+import confirmModal from "../../../../../app/js/internal/confirmModal";
+
 
 const defaultOptions = {
     fileUploadId:  "imageUploadControlFileUpload", // V template controlu ImageUpload, mimo snippet
