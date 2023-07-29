@@ -1,0 +1,64 @@
+{templateType App\AdminModule\Components\ImageUpload\ImageUploadTemplate}
+{snippet}
+    <div class="mb-3">
+        <strong>Miniatura k výpisu článků:</strong>
+        <span n:if="!$thumb"> Miniaturu vytvoříte z obrázku kliknutím na <i class="fas fa-thumbtack"></i></span>
+    </div>
+    <div n:if="$thumb" class="card mb-3" style="width: 20rem;">
+        <div class="card-header d-flex justify-content-end p-1">
+            <a href="#!" title="Smazat miniaturu" data-bs-toggle="modal" data-bs-target="#confirmModal"
+               data-modal-title="Smazat miniaturu" data-modal-body='Opravdu si přejete odstranit miniaturu?' data-modal-submit="Smazat"
+               data-modal-href="{link deleteImage! $thumb->name}" data-modal-ajax>
+                <i class="fas fa-window-close"></i>
+            </a>
+        </div>
+        <div class="card-body">
+            <img src="{$thumb->path}?timestamp={time()}" alt="" class="img-fluid"/>
+        </div>
+        <div class="card-footer text-muted p-1">
+            <div>{$thumb->name}</div>
+        </div>
+    </div>
+    <div class="mb-2">
+        <strong>Obrázky:</strong>
+        <span n:if="!count($images)"> Zatím nebyly nahrány žádné obrázky</span>
+    </div>
+    <div id="imageUploadControlImagesElement" class="d-flex flex-wrap mb-2">
+        <div n:foreach="$images as $image" class="m-2">
+            <div class="card h-100" style="width: 20rem;">
+                <div class="card-header p-1 d-flex">
+                    <div class="me-auto">
+                        {* copy-image je selector pro javascript - kopírování. K tomu jsou data-src a data-alt*}
+                        <a class="copy-image" href="#!" title="Zkopírovat <img> obrázku" data-src="{$image->path}" data-alt="{$image->name}">
+                            <i class="fas fa-copy"></i>
+                        </a>
+                        <a class="ajax" n:href="createThumb! $image->name" title="Vytvořit miniaturu">
+                            <i class="fas fa-thumbtack"></i>
+                        </a>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <a href="#!" title="Smazat obrázek" data-bs-toggle="modal" data-bs-target="#confirmModal"
+                           data-modal-title="Smazat Obrázek" data-modal-body="Opravdu si přejete vymazat obrázek:<br><strong>{$image->name}</strong>?"
+                           data-modal-submit="Smazat" data-modal-href="{link deleteImage! $image->name}" data-modal-ajax>
+                            <i class="fas fa-window-close"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <img src="{$image->path}?timestamp={time()}" alt="" class="img-fluid"/>
+                </div>
+                <div class="card-footer text-muted p-1">
+                    {$image->name}
+                </div>
+            </div>
+        </div>
+    </div>
+{/snippet}
+{*Upload bez formu, následně je pomocí javascriptu naklonován do správného formu a odeslán*}
+<div>
+    <label for="imageUploadControlFileUpload" class="btn btn-primary">Nahrát...</label>
+    <input type="file" id="imageUploadControlFileUpload" accept="image/*" multiple class="d-none">
+</div>
+
+
+
