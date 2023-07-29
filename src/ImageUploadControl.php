@@ -44,7 +44,7 @@ class ImageUploadControl extends Control
     }
 
     /**
-     * Singál pro odstranění obrázku
+     * Signál pro odstranění obrázku
      * @param string $imageName název obrázku
      */
     public function handleDeleteImage(string $imageName): void
@@ -56,6 +56,11 @@ class ImageUploadControl extends Control
         $this->handleEnd();
     }
 
+    /**
+     * Signál pro vytvoření miniatury
+     * @param string $imageName název obrázku
+     * @return void
+     */
     public function handleCreateThumb(string $imageName): void
     {
         try {
