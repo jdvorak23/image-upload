@@ -1,6 +1,6 @@
 <?php
 
-namespace App\AdminModule\Components\ImageUpload\Exceptions;
+namespace Jdvorak23\ImageUpload\Exceptions;
 
 use Exception;
 

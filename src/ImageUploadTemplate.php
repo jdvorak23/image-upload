@@ -1,6 +1,6 @@
 <?php
 
-namespace App\AdminModule\Components\ImageUpload;
+namespace Jdvorak23\ImageUpload;
 
 use Nette\Bridges\ApplicationLatte\Template;
 

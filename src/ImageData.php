@@ -1,6 +1,6 @@
 <?php
 
-namespace App\AdminModule\Components\ImageUpload;
+namespace Jdvorak23\ImageUpload;
 
 class ImageData
 {

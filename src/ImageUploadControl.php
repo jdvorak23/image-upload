@@ -1,6 +1,6 @@
 <?php
 
-namespace App\AdminModule\Components\ImageUpload;
+namespace Jdvorak23\ImageUpload;
 
 use App\AdminModule\Components\ImageUpload\Exceptions\BadFileFolderNameException;
 use Nette\Application\UI\Control;
