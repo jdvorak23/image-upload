@@ -2,7 +2,8 @@
 
 namespace Jdvorak23\ImageUpload;
 
-use App\AdminModule\Components\ImageUpload\Exceptions\BadFileFolderNameException;
+
+use Jdvorak23\ImageUpload\Exceptions\BadFileFolderNameException;
 use Nette\Application\UI\Control;
 use Nette\Application\UI\Form;
 use Nette\Utils\ImageException;
