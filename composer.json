@@ -1,0 +1,23 @@
+{
+  "name": "jdvorak23/image-upload",
+  "description": "Bootstrap 5 image upload component for Nette",
+  "minimum-stability": "stable",
+  "license": ["Unlicense"],
+  "authors": [
+    {
+      "name": "Jan Dvořák",
+      "email": "dvorakj3@post.cz",
+      "homepage": "http://www.jan-dvorak.cz",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Jdvorak23\\ImageUpload\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=8.1",
+    "nette/application": "^3.1"
+  }
+}
