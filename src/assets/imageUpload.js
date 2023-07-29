@@ -3,8 +3,10 @@
 import defaults from "defaults";
 import naja from "naja";
 // Internal
-import clipboard from "../../../../../app/js/internal/clipboard";
-import confirmModal from "../../../../../app/js/internal/confirmModal";
+//import clipboard from "../../../../../app/js/internal/clipboard";
+//import confirmModal from "../../../../../app/js/internal/confirmModal";
+import clipboard from "../../../../js/clipboard";
+import confirmModal from "../../../../js/confirmModal";
 
 const defaultOptions = {
     fileUploadId:  "imageUploadControlFileUpload", // V template controlu ImageUpload, mimo snippet
@@ -19,6 +21,8 @@ const defaultOptions = {
     imageCopyAnchorClass: "copy-image",
     imageCopyAnchorDataSrc: "data-src",
     imageCopyAnchorDataAlt: "data-alt",
+    // snippet
+    snippetId: "snippet-imageUpload-default", //
 }
 
 class ImageUpload
@@ -49,6 +53,11 @@ class ImageUpload
         this.fileUpload.addEventListener("change", () => {
             this._uploadImages();
         });
+        naja.snippetHandler.addEventListener('afterUpdate', (event) => {
+            if (event.detail.snippet.id === this.options.snippetId) {
+                this._setCopyButtons();
+            }
+        });
         this._setCopyButtons();
     }
     _uploadImages(){
@@ -62,7 +71,6 @@ class ImageUpload
         submitButton.click();
         submitButton.remove();
         formFileUpload.remove();
-        this._setCopyButtons();
     }
     _setCopyButtons(){
         const imagesElement = document.getElementById(this.options.imagesElementId);
